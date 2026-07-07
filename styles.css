@@ -1,11 +1,11 @@
 /* ===== NutriApp - GitHub Pages Styles ===== */
 :root {
-  --primary: #2E7D32;
-  --primary-dark: #1B5E20;
-  --primary-light: #4CAF50;
-  --accent: #FF9800;
+  --primary: #2563EB;
+  --primary-dark: #1E40AF;
+  --primary-light: #60A5FA;
+  --accent: #00BCD4;
   --bg: #FFFFFF;
-  --bg-alt: #F1F8E9;
+  --bg-alt: #EFF6FF;
   --text: #212121;
   --text-light: #616161;
   --text-on-primary: #FFFFFF;
@@ -53,15 +53,11 @@ body {
   color: var(--primary);
   text-decoration: none;
 }
-.nav-logo .logo-icon {
+.nav-logo .logo-img {
   width: 36px;
   height: 36px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
+  border-radius: 8px;
+  object-fit: contain;
 }
 .nav-links { display: flex; gap: 24px; list-style: none; }
 .nav-links a {
@@ -162,11 +158,11 @@ body {
   font-size: 1.6rem;
   margin-bottom: 20px;
 }
-.feature-icon.green { background: #E8F5E9; color: var(--primary); }
-.feature-icon.orange { background: #FFF3E0; color: var(--accent); }
-.feature-icon.blue { background: #E3F2FD; color: #1565C0; }
-.feature-icon.purple { background: #F3E5F5; color: #7B1FA2; }
-.feature-icon.teal { background: #E0F2F1; color: #00695C; }
+.feature-icon.blue { background: #DBEAFE; color: var(--primary); }
+.feature-icon.cyan { background: #E0F2F1; color: #00BCD4; }
+.feature-icon.indigo { background: #E8EAF6; color: #3F51B5; }
+.feature-icon.sky { background: #E1F5FE; color: #0288D1; }
+.feature-icon.violet { background: #F3E5F5; color: #7B1FA2; }
 .feature-icon.red { background: #FFEBEE; color: #C62828; }
 .feature-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
 .feature-card p { color: var(--text-light); font-size: 0.95rem; }
@@ -179,26 +175,37 @@ body {
 }
 .screenshots h2 { font-size: 2rem; font-weight: 700; margin-bottom: 16px; }
 .screenshots p { color: var(--text-light); max-width: 500px; margin: 0 auto 40px; }
-.screenshots-grid {
+.screenshots-scroll {
   display: flex;
   gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 0 20px;
   max-width: var(--max-width);
   margin: 0 auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-light) var(--bg-alt);
 }
-.screenshot-placeholder {
-  width: 200px;
-  height: 400px;
-  background: #fff;
-  border-radius: 20px;
-  border: 3px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-light);
-  font-size: 0.85rem;
-  font-weight: 500;
+.screenshots-scroll::-webkit-scrollbar { height: 6px; }
+.screenshots-scroll::-webkit-scrollbar-track { background: var(--bg-alt); border-radius: 3px; }
+.screenshots-scroll::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius: 3px; }
+.screenshot-img {
+  height: 520px;
+  width: auto;
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.screenshot-img:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.18); }
+@media (max-width: 768px) {
+  .screenshots-scroll {
+    gap: 14px;
+    padding: 8px 12px 16px;
+  }
+  .screenshot-img { height: 400px; border-radius: 18px; }
 }
 
 /* ===== Download Section ===== */
